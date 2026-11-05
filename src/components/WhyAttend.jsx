@@ -1,17 +1,86 @@
 import { Section, Heading, Reveal } from './ui'
 import { worth } from '../data/content'
+
 const img = '/images/mentor-maroon.png'
 const testi = '/images/testimonial.png'
+
 export default function WhyAttend() {
-  return <Section className="bg-paper">
-    <Heading title="What Makes This Masterclass Worth Attending?" sub="Practical Learning for Your Gut-Health Journey" />
-    <div className="grid items-center gap-10 lg:grid-cols-2">
-      <div className="relative border-l-2 border-crimson/30 pl-8">
-        {worth.map(([t, d], i) => <Reveal key={t} delay={i * 60} className="relative pb-8 last:pb-0">
-          <span className="absolute -left-[2.55rem] top-1 h-4 w-4 rounded-full border-4 border-paper bg-crimson" />
-          <h3 className="text-xl font-bold">{t}</h3><p className="text-neutral-600">{d}</p></Reveal>)}</div>
-      <Reveal><img src={img} alt="Dr. Abhimanyu Bhargava" loading="lazy" className="mx-auto aspect-[4/5] w-full max-w-md rounded-3xl object-cover shadow-2xl" /></Reveal>
-    </div>
-    <Reveal className="mt-16"><img src={testi} alt="Client testimonial from Satpal Prajapati, Uttar Pradesh" loading="lazy" className="mx-auto w-full max-w-md rounded-3xl shadow-xl" /></Reveal>
-  </Section>
+  return (
+    <Section className="relative overflow-hidden bg-paper">
+      {/* Ambient background accents */}
+      <div className="pointer-events-none absolute -left-40 top-20 h-96 w-96 rounded-full bg-crimson/10 blur-3xl" aria-hidden="true" />
+      <div className="pointer-events-none absolute -right-40 bottom-10 h-96 w-96 rounded-full bg-crimson-dark/10 blur-3xl" aria-hidden="true" />
+
+      <div className="relative">
+        <Heading
+          title="What Makes This Masterclass Worth Attending?"
+          sub="Practical Learning for Your Gut-Health Journey"
+        />
+
+        <div className="grid items-center gap-8 sm:gap-14 lg:grid-cols-2 lg:gap-20">
+          {/* Timeline */}
+          <div className="relative pl-10">
+            {/* Vertical gradient line */}
+            <div
+              className="pointer-events-none absolute bottom-2 left-[0.6rem] top-2 w-px bg-gradient-to-b from-crimson via-crimson/40 to-transparent"
+              aria-hidden="true"
+            />
+
+            <ol className="space-y-7">
+              {worth.map(([t, d], i) => (
+                <Reveal key={t} delay={i * 60}>
+                  <li className="group relative">
+                    {/* Node */}
+                    <span
+                      className="absolute -left-10 top-1 grid h-5 w-5 place-items-center rounded-full border-4 border-paper bg-crimson shadow-[0_0_0_4px_rgba(155,17,30,0.12)] transition-transform duration-300 group-hover:scale-125"
+                      aria-hidden="true"
+                    />
+
+                    <div className="rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-[0_8px_24px_-18px_rgba(139,0,20,0.3)] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:border-crimson/25 group-hover:shadow-[0_16px_36px_-18px_rgba(139,0,20,0.35)]">
+                      <span className="mb-2 inline-block font-display text-xs font-extrabold tracking-widest text-crimson/60">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <h3 className="font-display text-lg font-bold leading-snug text-ink sm:text-xl">{t}</h3>
+                      <p className="mt-1.5 leading-relaxed text-neutral-600">{d}</p>
+                    </div>
+                  </li>
+                </Reveal>
+              ))}
+            </ol>
+          </div>
+
+          {/* Mentor image */}
+          <Reveal className="relative mx-auto w-full max-w-md">
+            <div className="absolute -inset-3 rotate-2 rounded-[2.25rem] bg-gradient-to-br from-crimson/20 via-crimson-light/10 to-transparent" aria-hidden="true" />
+            <div className="relative overflow-hidden rounded-[2rem] border border-white shadow-[0_30px_70px_-30px_rgba(139,0,20,0.45)]">
+              <img
+                src={img}
+                alt="Dr. Abhimanyu Bhargava"
+                loading="lazy"
+                className="aspect-[4/5] w-full object-cover transition-transform duration-700 hover:scale-105"
+              />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-ink/40 to-transparent" aria-hidden="true" />
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Testimonial */}
+        <Reveal className="mt-12 sm:mt-20">
+          <div className="mx-auto max-w-md">
+            <p className="mb-5 text-center text-[11px] font-bold uppercase tracking-[0.18em] text-crimson">
+              Real Client Experience
+            </p>
+            <div className="relative overflow-hidden rounded-3xl border border-white bg-white p-3 shadow-[0_24px_60px_-28px_rgba(139,0,20,0.4)] ring-1 ring-neutral-200/70">
+              <img
+                src={testi}
+                alt="Client testimonial from Satpal Prajapati, Uttar Pradesh"
+                loading="lazy"
+                className="block w-full rounded-2xl"
+              />
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </Section>
+  )
 }
