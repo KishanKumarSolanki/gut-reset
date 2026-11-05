@@ -1,7 +1,7 @@
 import { Section, Heading, Reveal, Button } from './ui'
 import { learn } from '../data/content'
 export default function Learn() {
-  return <Section id="learn" className="bg-paper">
+  return <Section id="learn" className="bg-gradient-to-b from-[#fffaf8] via-[#fdebed] to-[#f8dfe2]">
     <Heading title="What Will You Learn in This Masterclass?" sub="Build a Better Understanding of Your Gut Health" />
     <div className="grid gap-x-10 gap-y-4 md:grid-cols-2">
       {learn.map(([ic, t, d], i) => <Reveal key={t} delay={(i % 2) * 80}>

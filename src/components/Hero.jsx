@@ -87,7 +87,7 @@ export default function Hero() {
 
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {details.map(([icon, label, value]) => (
-                <div key={label} className="flex min-h-[116px] flex-col justify-center rounded-2xl border border-crimson/15 bg-gradient-to-br from-[#fff1f2] to-[#f6d5d8] p-4 shadow-[0_8px_24px_-18px_rgba(155,17,30,.35)] sm:min-h-[132px] sm:rounded-3xl sm:p-5">
+                <div key={label} className="flex min-h-[116px] flex-col justify-center rounded-2xl border border-crimson/10 bg-white p-4 shadow-[0_8px_24px_-18px_rgba(155,17,30,.35)] sm:min-h-[132px] sm:rounded-3xl sm:p-5">
                   <span className="mb-2 flex h-9 w-9 items-center justify-center rounded-xl bg-[#fff0f1] text-crimson sm:h-10 sm:w-10">
                     <Icon name={icon} className="h-5 w-5" />
                   </span>
