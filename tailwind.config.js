@@ -13,6 +13,15 @@ export default {
       marquee:{ '0%':{transform:'translateX(0)'}, '100%':{transform:'translateX(-50%)'} },
       'testimonial-marquee':{ '0%':{transform:'translateX(0)'}, '100%':{transform:'translateX(-50%)'} },
       blob:{ '0%,100%':{transform:'translate(0,0) scale(1)'}, '50%':{transform:'translate(30px,-20px) scale(1.12)'} },
+      twinkle:{ '0%,100%':{opacity:'.2', transform:'scale(.75)'}, '50%':{opacity:'.85', transform:'scale(1.35)'} },
+      sparkle:{
+        '0%,100%':{ opacity:'0', transform:'scale(0) rotate(0deg)' },
+        '50%':{ opacity:'1', transform:'scale(1) rotate(90deg)' },
+      },
+      numberGlow:{
+        '0%,100%':{ filter:'drop-shadow(0 0 0 rgba(224,165,38,0))' },
+        '50%':{ filter:'drop-shadow(0 0 8px rgba(224,165,38,0.55))' },
+      },
     },
     animation: {
       ring:'pulseRing 2s infinite', float:'float 6s ease-in-out infinite',
@@ -21,6 +30,9 @@ export default {
       shimmer:'shimmer 3.2s ease-in-out infinite', marquee:'marquee 28s linear infinite',
       'testimonial-marquee':'testimonial-marquee 55s linear infinite',
       blob:'blob 12s ease-in-out infinite',
+      twinkle:'twinkle 3.8s ease-in-out infinite',
+      sparkle:'sparkle 2.4s ease-in-out infinite',
+      numberGlow:'numberGlow 2.8s ease-in-out infinite',
     } } },
   plugins: [],
 }
