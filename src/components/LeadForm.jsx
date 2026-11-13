@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import { track } from '../utils/track'
 import { Section, Reveal } from './ui'
+import Button from './Button'
 import { FORM_ENDPOINT } from '../data/config'
 
 const validate = (v) => {
@@ -15,6 +16,9 @@ const validate = (v) => {
 const perks = [
   'Live 90-minute online masterclass',
   'Practical, structured gut health understanding',
+  'Explore how food, sleep, stress and daily routines relate to gut health',
+  'Learn to observe recurring food and symptom patterns',
+  'Explore basic Ayurvedic perspectives on gut wellness',
   '5 exclusive bonuses worth ₹12,000',
 ]
 
@@ -96,52 +100,48 @@ export default function LeadForm() {
   return (
     <Section
       id="register"
-      className="relative overflow-hidden bg-gradient-to-br from-ink via-neutral-900 to-crimson-dark"
+      className="relative overflow-hidden bg-gradient-to-br from-crimson-dark via-crimson to-crimson-light text-white"
     >
       {/* Ambient glows */}
-      <div className="pointer-events-none absolute -left-40 top-10 h-96 w-96 rounded-full bg-crimson/25 blur-3xl" aria-hidden="true" />
-      <div className="pointer-events-none absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-crimson-light/15 blur-3xl" aria-hidden="true" />
+      <div className="pointer-events-none absolute -left-40 top-10 h-96 w-96 rounded-full bg-white/10 blur-3xl" aria-hidden="true" />
+      <div className="pointer-events-none absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-ink/30 blur-3xl" aria-hidden="true" />
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.06] [background-image:radial-gradient(#fff_1px,transparent_1px)] [background-size:18px_18px]"
+        className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:radial-gradient(#fff_1px,transparent_1px)] [background-size:18px_18px]"
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-2 lg:gap-20">
-        {/* Left: copy */}
-        <Reveal className="text-white">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-crimson-light">
-            <span className="h-1.5 w-1.5 rounded-full bg-crimson-light" />
+      <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
+        {/* Left: copy (centered) */}
+        <Reveal className="text-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-white/90 backdrop-blur-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-white" aria-hidden="true" />
             Free Registration
           </span>
 
-          <h2 className="mt-6 font-display text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
-            Take the First Step Towards{' '}
-            <span className="bg-gradient-to-r from-white to-crimson-light bg-clip-text text-transparent">
-              Better Gut Awareness
-            </span>
+          <h2 className="mt-6 font-display text-3xl font-extrabold leading-[1.12] tracking-tight sm:text-4xl lg:text-5xl">
+            Take the First Step Towards Healthier Gut
           </h2>
 
-          <p className="mt-5 text-lg leading-relaxed text-white/80">
-            Register for the Gut Reset Masterclass and learn practical approaches to understanding your digestive health, food habits and daily routine.
-          </p>
-
-          <ul className="mt-8 space-y-3">
+          <ul className="mx-auto mt-8 grid grid-cols-2 gap-2 text-left sm:gap-3">
             {perks.map((p) => (
-              <li key={p} className="flex items-center gap-3 text-white/85">
-                <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-crimson/30 text-crimson-light">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5" aria-hidden="true">
+              <li
+                key={p}
+                className="group flex h-full items-start gap-2 rounded-2xl border border-white/10 bg-ink/70 px-3 py-3 text-white shadow-[0_12px_30px_-16px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-ink/85 sm:px-4 sm:py-3.5"
+              >
+                <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-white text-crimson shadow-md transition-transform duration-300 group-hover:scale-110 sm:h-6 sm:w-6">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="h-3 w-3 sm:h-3.5 sm:w-3.5" aria-hidden="true">
                     <path d="M20 6 9 17l-5-5" />
                   </svg>
                 </span>
-                {p}
+                <span className="text-xs leading-snug sm:text-sm">{p}</span>
               </li>
             ))}
           </ul>
 
-          <div className="mt-8 inline-flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-white/70 backdrop-blur-sm">
+          <div className="mx-auto mt-8 inline-flex items-center gap-3 rounded-2xl border border-white/15 bg-white/10 px-5 py-3 text-white/85 shadow-lg shadow-black/10 backdrop-blur-md">
             <span className="text-sm">Masterclass Value</span>
-            <span className="text-sm line-through decoration-white/50">₹999</span>
-            <span className="h-4 w-px bg-white/20" aria-hidden="true" />
+            <span className="text-sm line-through decoration-white/60">₹999</span>
+            <span className="h-4 w-px bg-white/25" aria-hidden="true" />
             <span className="text-sm">Your Registration: <b className="font-extrabold text-white">FREE</b></span>
           </div>
         </Reveal>
@@ -150,13 +150,13 @@ export default function LeadForm() {
         <Reveal>
           <div className="relative">
             {/* Offset glow behind card */}
-            <div className="absolute -inset-3 rounded-[2.25rem] bg-gradient-to-br from-crimson/40 via-transparent to-crimson-light/20 blur-xl" aria-hidden="true" />
+            <div className="absolute -inset-3 rounded-[2.25rem] bg-gradient-to-br from-white/30 via-transparent to-crimson-light/30 blur-xl" aria-hidden="true" />
 
             <form
               onSubmit={submit}
               onFocus={onStart}
               noValidate
-              className="relative space-y-4 rounded-[2rem] border border-white/60 bg-paper p-5 shadow-2xl shadow-black/40 sm:space-y-5 sm:p-9"
+              className="relative space-y-4 rounded-[2rem] border border-white/60 bg-paper p-5 shadow-2xl shadow-black/30 sm:space-y-5 sm:p-9"
             >
               <div>
                 <h3 className="font-display text-2xl font-extrabold text-ink sm:text-[1.7rem]">
@@ -169,22 +169,21 @@ export default function LeadForm() {
               {field('whatsapp', 'WhatsApp Number', 'tel', '10-digit mobile number', 'We send the joining link here')}
               {field('email', 'Email Address', 'email', 'you@example.com')}
 
-              <button
+              <Button
+                variant="red"
+                pulseScale
+                as="button"
+                type="submit"
                 disabled={busy}
-                className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl bg-gradient-to-r from-crimson to-crimson-light px-6 py-4 text-lg font-extrabold text-white shadow-[0_14px_30px_-10px_rgba(155,17,30,0.6)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_-12px_rgba(155,17,30,0.7)] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
+                className="w-full disabled:animate-none disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
               >
                 {busy ? (
                   <>
-                    <span className="h-5 w-5 animate-spin rounded-full border-2 border-white/40 border-t-white" aria-hidden="true" />
+                    <span className="inline-block h-5 w-5 animate-spin rounded-full border-2 border-white/40 border-t-white" aria-hidden="true" />
                     Submitting…
                   </>
-                ) : (
-                  <>
-                    Register Now: Join for Free
-                    <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
-                  </>
-                )}
-              </button>
+                ) : null}
+              </Button>
 
               {status.msg && (
                 <p

@@ -1,4 +1,5 @@
-import { Section, Reveal, Button } from './ui'
+import { Section, Reveal } from './ui'
+import Button from './Button'
 
 const img = '/images/mentor-grey.png'
 
@@ -51,10 +52,10 @@ export default function About() {
           </span>
 
           <h2 className="mt-6 whitespace-nowrap text-center font-display text-[clamp(1.5rem,7vw,3rem)] font-extrabold leading-tight tracking-tight">
-            Dr. Abhimanyu{' '}
-            <span className="bg-gradient-to-r from-white via-white to-crimson-light bg-clip-text text-transparent">
+            Dr. Abhimanyu Bhargava
+            {/* <span className="bg-gradient-to-r from-white via-white to-crimson-light bg-clip-text text-transparent">
               Bhargava
-            </span>
+            </span> */}
           </h2>
 
           <p className="mt-4 text-lg text-crimson-light">
@@ -89,10 +90,7 @@ export default function About() {
           </div>
 
           <div className="mt-10 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center">
-            <Button className="group w-full justify-center shadow-lg shadow-crimson/30 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-crimson/40 sm:w-auto">
-              Join the Free Masterclass
-              <span className="ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
-            </Button>
+            <Button className="w-full sm:w-auto" />
           </div>
         </Reveal>
       </div>

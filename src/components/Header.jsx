@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Button } from './ui'
+import Button from './Button'
 import Logo from './Logo'
 
 const links = [
@@ -60,9 +60,7 @@ export default function Header() {
           ))}
 
           <div className="ml-4 pl-4 border-l border-white/10">
-            <Button className="!px-5 !py-2.5 !text-sm !animate-none shadow-lg shadow-crimson/30 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-crimson/40">
-              Register Free
-            </Button>
+            <Button className="!px-3 !py-2 !text-xs" />
           </div>
         </nav>
 
@@ -73,7 +71,7 @@ export default function Header() {
           aria-expanded={open}
           aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
-          className="relative flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-colors duration-300 hover:bg-white/10 md:hidden"
+          className="relative flex h-11 w-11 animate-ring items-center justify-center rounded-full border border-white/10 bg-white/5 transition-colors duration-300 hover:bg-white/10 md:hidden"
         >
           <span className="relative block h-4 w-5">
             <span
@@ -119,10 +117,8 @@ export default function Header() {
         <div className="p-5">
           <Button
             onClick={() => setOpen(false)}
-            className="w-full justify-center shadow-lg shadow-crimson/30"
-          >
-            Register Now: Join for Free
-          </Button>
+            className="w-full"
+          />
         </div>
       </div>
     </header>

@@ -1,4 +1,5 @@
-import { Section, Heading, Reveal, Button } from './ui'
+import { Section, Heading, Reveal } from './ui'
+import Button from './Button'
 import { details } from '../data/content'
 
 export default function MasterclassDetails() {
@@ -50,10 +51,7 @@ export default function MasterclassDetails() {
               </p>
 
               <div className="mt-7">
-                <Button className="group w-full justify-center px-10 shadow-lg shadow-black/30 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl sm:w-auto">
-                  Save My Free Seat
-                  <span className="ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
-                </Button>
+                <Button className="w-full sm:w-auto" />
               </div>
             </div>
           </div>

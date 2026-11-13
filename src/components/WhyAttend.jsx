@@ -2,7 +2,6 @@ import { Section, Heading, Reveal } from './ui'
 import { worth } from '../data/content'
 
 const img = '/images/mentor-maroon.png'
-const testi = '/images/testimonial.png'
 
 export default function WhyAttend() {
   return (
@@ -17,9 +16,9 @@ export default function WhyAttend() {
           sub="Practical Learning for Your Gut-Health Journey"
         />
 
-        <div className="grid items-center gap-8 sm:gap-14 lg:grid-cols-2 lg:gap-20">
+        <div className="grid items-center gap-8 sm:gap-14">
           {/* Timeline */}
-          <div className="relative pl-10">
+          <div className="relative mx-auto w-full max-w-4xl pl-10">
             {/* Vertical gradient line */}
             <div
               className="pointer-events-none absolute bottom-2 left-[0.6rem] top-2 w-px bg-gradient-to-b from-crimson via-crimson/40 to-transparent"
@@ -50,7 +49,7 @@ export default function WhyAttend() {
           </div>
 
           {/* Mentor image */}
-          <Reveal className="relative mx-auto w-full max-w-md">
+          {/* <Reveal className="relative mx-auto w-full max-w-md">
             <div className="absolute -inset-3 rotate-2 rounded-[2.25rem] bg-gradient-to-br from-crimson/20 via-crimson-light/10 to-transparent" aria-hidden="true" />
             <div className="relative overflow-hidden rounded-[2rem] border border-white shadow-[0_30px_70px_-30px_rgba(139,0,20,0.45)]">
               <img
@@ -61,25 +60,9 @@ export default function WhyAttend() {
               />
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-ink/40 to-transparent" aria-hidden="true" />
             </div>
-          </Reveal>
+          </Reveal> */}
         </div>
 
-        {/* Testimonial */}
-        <Reveal className="mt-12 sm:mt-20">
-          <div className="mx-auto max-w-md">
-            <p className="mb-5 text-center text-[11px] font-bold uppercase tracking-[0.18em] text-crimson">
-              Real Client Experience
-            </p>
-            <div className="relative overflow-hidden rounded-3xl border border-white bg-white p-3 shadow-[0_24px_60px_-28px_rgba(139,0,20,0.4)] ring-1 ring-neutral-200/70">
-              <img
-                src={testi}
-                alt="Client testimonial from Satpal Prajapati, Uttar Pradesh"
-                loading="lazy"
-                className="block w-full rounded-2xl"
-              />
-            </div>
-          </div>
-        </Reveal>
       </div>
     </Section>
   )

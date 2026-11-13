@@ -5,6 +5,7 @@ export default {
     fontFamily: { display:['Fraunces','Georgia','serif'], sans:['Hind','system-ui','sans-serif'] },
     keyframes: {
       pulseRing:{ '0%':{boxShadow:'0 0 0 0 rgba(155,17,30,.5)'}, '70%,100%':{boxShadow:'0 0 0 18px rgba(155,17,30,0)'} },
+      buttonPulse:{ '0%,100%':{scale:'1'}, '50%':{scale:'1.04'} },
       float:{ '0%,100%':{transform:'translateY(0)'}, '50%':{transform:'translateY(-10px)'} },
       fadeUp:{ '0%':{opacity:'0',transform:'translateY(24px)'}, '100%':{opacity:'1',transform:'translateY(0)'} },
       underline:{ '0%':{backgroundSize:'0% 4px'}, '100%':{backgroundSize:'100% 4px'} },
@@ -14,6 +15,7 @@ export default {
     },
     animation: {
       ring:'pulseRing 2s infinite', float:'float 6s ease-in-out infinite',
+      buttonPulse:'buttonPulse 1.8s ease-in-out infinite',
       fadeUp:'fadeUp .8s ease-out backwards', underline:'underline .9s ease-out 1s backwards',
       shimmer:'shimmer 3.2s ease-in-out infinite', marquee:'marquee 28s linear infinite',
       blob:'blob 12s ease-in-out infinite',

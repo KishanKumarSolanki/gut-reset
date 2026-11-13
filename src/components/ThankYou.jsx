@@ -1,4 +1,4 @@
-import { Button } from './ui'
+import Button from './Button'
 
 const steps = [
   ['Check Your WhatsApp', 'Look out for your Masterclass joining details and updates.'],
@@ -111,7 +111,7 @@ export default function ThankYou() {
             <Button
               href="#top"
               onClick={() => { window.location.hash = '' }}
-              className="group w-full justify-center px-10 shadow-lg shadow-crimson/30 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl sm:w-auto"
+              className="w-full sm:w-auto"
             >
               Return to Homepage
               <span className="ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>

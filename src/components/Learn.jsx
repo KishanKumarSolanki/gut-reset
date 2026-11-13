@@ -1,4 +1,5 @@
-import { Section, Heading, Reveal, Button } from './ui'
+import { Section, Heading, Reveal } from './ui'
+import Button from './Button'
 import { learn } from '../data/content'
 
 export default function Learn() {
@@ -51,9 +52,7 @@ export default function Learn() {
         </div>
 
         <div className="mt-10 flex flex-col items-center gap-4 sm:mt-16">
-          <Button className="w-full justify-center px-10 shadow-lg shadow-crimson/30 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-crimson/40 sm:w-auto">
-            Reserve Your Free Seat
-          </Button>
+          <Button className="w-full sm:w-auto" />
           <p className="text-sm text-neutral-500">Live session · Ask your questions directly</p>
         </div>
       </div>

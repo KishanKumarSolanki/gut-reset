@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import Hero from './components/Hero'
 import Learn from './components/Learn'
 import WhoFor from './components/WhoFor'
+import Testimonials from './components/Testimonials'
 import WhyJoin from './components/WhyJoin'
 import About from './components/About'
 import WhyAttend from './components/WhyAttend'
@@ -36,16 +37,17 @@ export default function App() {
         <Hero />
         <Learn />
         <WhoFor />
+        <Testimonials />
         <WhyJoin />
         <About />
         <WhyAttend />
         <Bonuses />
-        <MasterclassDetails />
+        {/* <MasterclassDetails /> */}
         <LeadForm />
         <FAQ />
         <FinalCTA />
       </main>
-      <Footer />
+      {/* <Footer /> */}
       <Floating />
     </>
   )

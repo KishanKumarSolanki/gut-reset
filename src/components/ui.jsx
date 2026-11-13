@@ -1,5 +1,4 @@
 import useReveal from '../hooks/useReveal'
-import { track } from '../utils/track'
 
 export const Reveal = ({ children, className = '', delay = 0 }) => {
   const [ref, shown] = useReveal()
@@ -13,34 +12,6 @@ export const Reveal = ({ children, className = '', delay = 0 }) => {
     >
       {children}
     </div>
-  )
-}
-
-const variants = {
-  red: 'bg-gradient-to-r from-crimson to-crimson-light text-white shadow-[0_14px_30px_-10px_rgba(155,17,30,0.6)] ring-1 ring-white/10 hover:shadow-[0_20px_40px_-12px_rgba(155,17,30,0.7)] animate-ring',
-  white: 'bg-white text-crimson shadow-[0_14px_30px_-12px_rgba(0,0,0,0.25)] ring-1 ring-crimson/10 hover:bg-neutral-50 hover:shadow-[0_20px_40px_-14px_rgba(0,0,0,0.3)]',
-  dark: 'bg-gradient-to-b from-neutral-800 to-ink text-white shadow-[0_14px_30px_-12px_rgba(0,0,0,0.5)] ring-1 ring-white/10 hover:from-neutral-700 hover:shadow-[0_20px_40px_-14px_rgba(0,0,0,0.6)]',
-}
-
-export const Button = ({ children, href = '#register', variant = 'red', className = '', ...p }) => {
-  const click = (e) => {
-    track('cta_click', { label: typeof children === 'string' ? children : 'cta', target: href })
-    p.onClick?.(e)
-  }
-  return (
-    <a
-      href={href}
-      {...p}
-      onClick={click}
-      className={`group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-7 py-4 text-center text-base font-bold tracking-wide transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-crimson sm:text-lg ${variants[variant]} ${className}`}
-    >
-      {/* Sheen sweep on hover */}
-      <span
-        className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full"
-        aria-hidden="true"
-      />
-      <span className="relative inline-flex items-center gap-2">{children}</span>
-    </a>
   )
 }
 

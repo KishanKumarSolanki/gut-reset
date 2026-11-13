@@ -1,5 +1,6 @@
 import { track } from '../utils/track'
 import { WHATSAPP_NUMBER, WHATSAPP_MESSAGE } from '../data/config'
+import Button from './Button'
 
 export default function Floating() {
   const wa = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`
@@ -38,14 +39,10 @@ export default function Floating() {
         {/* Fade behind bar so content doesn't clash */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/80 to-transparent" aria-hidden="true" />
 
-        <a
-          href="#register"
-          onClick={() => track('cta_click', { label: 'mobile_sticky_register', target: '#register' })}
-          className="relative flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-crimson to-crimson-light py-3.5 text-center text-base font-extrabold text-white shadow-[0_12px_30px_-8px_rgba(155,17,30,0.7)] ring-1 ring-white/20 transition-transform duration-300 active:scale-[0.98]"
-        >
-          Register Now: Join for Free
-          <span aria-hidden="true">→</span>
-        </a>
+        <Button
+          trackingLabel="mobile_sticky_register"
+          className="w-full py-3.5"
+        />
       </div>
     </>
   )

@@ -1,4 +1,5 @@
-import { Section, Heading, Reveal, Button } from './ui'
+import { Section, Heading, Reveal } from './ui'
+import Button from './Button'
 import { bonuses } from '../data/content'
 
 export default function Bonuses() {
@@ -55,17 +56,17 @@ export default function Bonuses() {
         </div>
 
         {/* Summary panel */}
-        <Reveal className="relative mt-10 overflow-hidden rounded-[2rem] bg-gradient-to-br from-ink via-[#2a0b10] to-crimson-dark p-6 text-center text-white shadow-2xl shadow-crimson/30 sm:mt-16 sm:p-12">
+        <Reveal className="relative mt-10 overflow-hidden rounded-[2rem] bg-gradient-to-br from-crimson-dark via-crimson to-crimson-light p-6 text-center text-white shadow-2xl shadow-crimson/30 sm:mt-16 sm:p-12">
           <div className="pointer-events-none absolute -top-24 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-crimson-light/20 blur-3xl" />
           <div className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:radial-gradient(#fff_1px,transparent_1px)] [background-size:18px_18px]" />
 
           <div className="relative">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-crimson-light">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-white">
               Total Bonus Value
             </span>
 
             <p className="mt-5 font-display text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
-              <span className="bg-gradient-to-r from-crimson-light to-white bg-clip-text text-transparent">
+              <span className="text-white">
                 ₹12,000/-
               </span>
             </p>
@@ -79,10 +80,7 @@ export default function Bonuses() {
             </div>
 
             <div className="mt-8 flex justify-center">
-              <Button className="group w-full justify-center px-10 shadow-lg shadow-black/30 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl sm:w-auto">
-                Register Now: Claim Your Free Bonuses
-                <span className="ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
-              </Button>
+              <Button variant="black" className="w-full sm:w-auto" />
             </div>
           </div>
         </Reveal>

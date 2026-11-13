@@ -1,4 +1,4 @@
-import { track } from '../utils/track'
+import Button from './Button'
 
 const iconPaths = {
   clock: <><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></>,
@@ -32,7 +32,7 @@ const ticker = [
   ['gift', 'Register FREE: Value ₹999'],
 ]
 
-const highlights = ['No guesswork', 'No prior knowledge needed', 'No medical reports needed']
+const highlights = ['No prior knowledge needed', 'No medical reports needed']
 
 export default function Hero() {
   return (
@@ -75,14 +75,14 @@ export default function Hero() {
       <div className="relative mx-auto max-w-6xl px-4 pb-10 pt-8 sm:px-8 sm:pb-24 sm:pt-20">
         {/* Header */}
         <header className="mx-auto max-w-4xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-crimson/15 bg-white/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-crimson shadow-[0_6px_20px_-10px_rgba(155,17,30,.35)] backdrop-blur-sm sm:text-sm">
+          {/* <span className="inline-flex items-center gap-2 rounded-full border border-crimson/15 bg-white/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-crimson shadow-[0_6px_20px_-10px_rgba(155,17,30,.35)] backdrop-blur-sm sm:text-sm">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-crimson opacity-60" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-crimson" />
             </span>
             <Icon name="leaf" className="h-4 w-4" />
             Free Gut Reset Masterclass
-          </span>
+          </span> */}
 
           <h1 className="mx-auto mt-5 max-w-4xl font-display text-[2rem] font-extrabold leading-[1.12] tracking-tight text-[#20251f] sm:mt-6 sm:text-5xl sm:leading-[1.08] lg:text-[3.75rem]">
             Understand Your Gut.{' '}
@@ -91,9 +91,22 @@ export default function Hero() {
           </h1>
 
           <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-neutral-700 sm:mt-6 sm:text-lg">
-            Join Dr. Abhimanyu Bhargava for a live session on the connection between digestion, food habits, lifestyle and gut wellness.
+            Discover The Secret Way To Get Rid Of All Gut Health Issues Permanently.
           </p>
         </header>
+
+        {/* Highlights */}
+        <ul className="mt-5 flex flex-nowrap items-center justify-center gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {highlights.map((h) => (
+            <li
+              key={h}
+              className="inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full border border-crimson/10 bg-[#f8dfe1] px-3 py-1.5 text-[11px] font-semibold text-crimson-dark sm:px-3.5 sm:text-sm"
+            >
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-crimson" />
+              {h}
+            </li>
+          ))}
+        </ul>
 
         {/* Content grid */}
         <div className="mx-auto mt-8 grid max-w-5xl items-center gap-6 sm:mt-14 sm:gap-8 lg:grid-cols-[1.05fr_.95fr] lg:gap-12">
@@ -158,35 +171,15 @@ export default function Hero() {
               ))}
             </div>
 
-            {/* Highlights */}
-            <ul className="mt-5 flex flex-wrap justify-center gap-2 lg:justify-start">
-              {highlights.map((h) => (
-                <li
-                  key={h}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-crimson/10 bg-[#f8dfe1] px-3.5 py-1.5 text-xs font-semibold text-crimson-dark sm:text-sm"
-                >
-                  <span className="h-1.5 w-1.5 rounded-full bg-crimson" />
-                  {h}
-                </li>
-              ))}
-            </ul>
+
+
 
             {/* CTA */}
             <div className="mt-7">
-              <a
-                href="#register"
-                onClick={() => track('cta_click', { label: 'hero_register', target: '#register' })}
-                className="group relative flex w-full items-center justify-center gap-2.5 overflow-hidden rounded-2xl bg-gradient-to-b from-crimson-light to-crimson-dark px-6 py-4 text-center text-base font-extrabold text-white shadow-[0_14px_30px_-10px_rgba(155,17,30,.6)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_-12px_rgba(155,17,30,.7)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-crimson sm:rounded-3xl sm:py-5 sm:text-xl"
-              >
-                <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-                <Icon name="gift" className="relative h-5 w-5 shrink-0" />
-                <span className="relative">
-                  Book Your Free Seat <span className="font-semibold opacity-90">· Value ₹999</span>
-                </span>
-                <span className="relative ml-1 text-xl transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">
-                  →
-                </span>
-              </a>
+              <Button
+                trackingLabel="hero_register"
+                className="w-full sm:py-5 sm:text-xl"
+              />
               <p className="mt-3 text-center text-xs font-medium text-neutral-600 sm:text-sm">
                 LIVE online · 90 minutes · Registration is completely free
               </p>

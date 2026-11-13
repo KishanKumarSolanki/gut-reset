@@ -42,7 +42,7 @@ export default function FAQ() {
                   onClick={() => setOpen(isOpen ? -1 : i)}
                   aria-expanded={isOpen}
                   aria-controls={panelId}
-                  className="flex w-full items-center gap-3 p-4 pl-5 text-left sm:gap-4 sm:p-6 sm:pl-7"
+                  className="flex w-full animate-ring items-center gap-3 p-4 pl-5 text-left sm:gap-4 sm:p-6 sm:pl-7"
                 >
                   {/* Number badge */}
                   <span
