@@ -110,6 +110,7 @@ export default function ThankYou() {
           <div className="mt-8 flex justify-center">
             <Button
               href="#top"
+              showScarcity={false}
               onClick={() => { window.location.hash = '' }}
               className="w-full sm:w-auto"
             >

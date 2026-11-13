@@ -7,10 +7,20 @@ const styles = `
   position: relative;
   display: flex;
   justify-content: center;
+  width: fit-content;
+  margin-inline: auto;
   max-width: 100%;
   border-radius: 9999px;
   isolation: isolate;
   animation: ctaPulse 2.2s ease-in-out infinite;
+}
+.cta-wrap.cta-wrap-full {
+  width: 100%;
+}
+@media (min-width: 640px) {
+  .cta-wrap.cta-wrap-sm-auto {
+    width: fit-content;
+  }
 }
 .cta-wrap::after {
   content: "";
@@ -67,12 +77,20 @@ export default function Button({
   children,
   className = '',
   wrapperClassName = '',
+  showScarcity = true,
   onClick,
   trackingLabel,
   ...props
 }) {
   const Element = as === 'button' ? 'button' : 'a'
   const label = trackingLabel || (children == null ? 'Book Your Seat Now' : typeof children === 'string' ? children : 'cta')
+  const buttonWidthClasses = className.split(/\s+/)
+  const wrapperClasses = [
+    'cta-wrap',
+    buttonWidthClasses.includes('w-full') ? 'cta-wrap-full' : '',
+    buttonWidthClasses.includes('sm:w-auto') ? 'cta-wrap-sm-auto' : '',
+    wrapperClassName,
+  ].filter(Boolean).join(' ')
 
   const isBlack = variant === 'black'
   const variantClasses = isBlack
@@ -90,9 +108,14 @@ export default function Button({
     <>
       <style>{styles}</style>
       <span
-        className={`cta-wrap ${wrapperClassName}`}
+        className={wrapperClasses}
         style={{ '--cta-glow': glowColor }}
       >
+        {showScarcity && (
+          <span className="absolute right-2 top-0 z-10 -translate-y-1/2 whitespace-nowrap rounded-full bg-[#111827] px-3 py-1.5 text-[10px] font-bold leading-none text-white shadow-md sm:text-xs">
+            Almost Full <span aria-hidden="true">·</span> Only 4 Seats Left
+          </span>
+        )}
         <Element
           {...props}
           href={as === 'button' ? undefined : href}

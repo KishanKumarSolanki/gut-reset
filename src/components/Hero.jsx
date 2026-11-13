@@ -22,7 +22,7 @@ const details = [
   ['clock', 'Duration', '90 minutes'],
   ['video', 'Format', 'LIVE online masterclass'],
   ['chat', 'Joining details', 'Shared on WhatsApp / Email'],
-  ['gift', 'Registration', 'Free (Value ₹999)'],
+  ['gift', 'Bonuses', 'Worth ₹19,000/- For Free'],
 ]
 
 const ticker = [
@@ -72,7 +72,7 @@ export default function Hero() {
       <div className="pointer-events-none absolute -right-32 top-1/3 h-96 w-96 rounded-full bg-[#e9a1aa]/25 blur-3xl" />
       <div className="pointer-events-none absolute bottom-0 left-1/2 h-64 w-[38rem] -translate-x-1/2 rounded-full bg-crimson/10 blur-3xl" />
 
-      <div className="relative mx-auto max-w-6xl px-4 pb-10 pt-8 sm:px-8 sm:pb-24 sm:pt-20">
+      <div className="relative mx-auto max-w-6xl px-3 pb-10 pt-4 sm:px-8 sm:pb-24 sm:pt-20">
         {/* Header */}
         <header className="mx-auto max-w-4xl text-center">
           {/* <span className="inline-flex items-center gap-2 rounded-full border border-crimson/15 bg-white/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-crimson shadow-[0_6px_20px_-10px_rgba(155,17,30,.35)] backdrop-blur-sm sm:text-sm">
@@ -84,7 +84,7 @@ export default function Hero() {
             Free Gut Reset Masterclass
           </span> */}
 
-          <h1 className="mx-auto mt-5 max-w-4xl font-display text-[2rem] font-extrabold leading-[1.12] tracking-tight text-[#20251f] sm:mt-6 sm:text-5xl sm:leading-[1.08] lg:text-[3.75rem]">
+          <h1 className="mx-auto mt-2 max-w-4xl font-display text-2xl font-extrabold leading-[1.12] tracking-tight text-[#20251f] sm:mt-6 sm:text-5xl sm:leading-[1.08] lg:text-[3.75rem]">
             Understand Your Gut.{' '}
             <span className="text-crimson">Discover Possible Triggers.</span>{' '}
             Take Practical Steps Towards Better Gut Health.
@@ -155,18 +155,20 @@ export default function Hero() {
               {details.map(([icon, label, value]) => (
                 <div
                   key={label}
-                  className="group relative flex min-h-[116px] flex-col justify-center overflow-hidden rounded-2xl border border-crimson/10 bg-white/90 p-4 shadow-[0_10px_30px_-18px_rgba(155,17,30,.4)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-crimson/25 hover:shadow-[0_16px_36px_-16px_rgba(155,17,30,.45)] sm:min-h-[132px] sm:rounded-3xl sm:p-5"
+                  className="group relative flex min-h-[116px] flex-row items-center gap-3 overflow-hidden rounded-2xl border border-crimson/10 bg-white/90 p-4 shadow-[0_10px_30px_-18px_rgba(155,17,30,.4)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-crimson/25 hover:shadow-[0_16px_36px_-16px_rgba(155,17,30,.45)] sm:min-h-[132px] sm:rounded-3xl sm:p-5"
                 >
                   <div className="pointer-events-none absolute -right-8 -top-8 h-20 w-20 rounded-full bg-crimson/0 blur-xl transition-colors duration-300 group-hover:bg-crimson/10" />
-                  <span className="relative mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#fff0f1] to-[#f8dfe1] text-crimson shadow-inner sm:h-11 sm:w-11">
+                  <span className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#fff0f1] to-[#f8dfe1] text-crimson shadow-inner sm:h-11 sm:w-11">
                     <Icon name={icon} className="h-5 w-5" />
                   </span>
-                  <span className="relative text-[11px] font-bold uppercase tracking-wide text-neutral-500 sm:text-xs">
-                    {label}
-                  </span>
-                  <span className="relative mt-1 text-sm font-bold leading-snug text-[#242820] sm:text-base">
-                    {value}
-                  </span>
+                  <div className="relative min-w-0">
+                    <span className="text-[11px] font-bold uppercase tracking-wide text-neutral-500 sm:text-xs">
+                      {label}
+                    </span>
+                    <span className="mt-1 block text-sm font-bold leading-snug text-[#242820] sm:text-base">
+                      {value}
+                    </span>
+                  </div>
                 </div>
               ))}
             </div>

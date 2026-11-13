@@ -11,6 +11,7 @@ export default {
       underline:{ '0%':{backgroundSize:'0% 4px'}, '100%':{backgroundSize:'100% 4px'} },
       shimmer:{ '0%':{transform:'translateX(-120%) skewX(-20deg)'}, '100%':{transform:'translateX(520%) skewX(-20deg)'} },
       marquee:{ '0%':{transform:'translateX(0)'}, '100%':{transform:'translateX(-50%)'} },
+      'testimonial-marquee':{ '0%':{transform:'translateX(0)'}, '100%':{transform:'translateX(-50%)'} },
       blob:{ '0%,100%':{transform:'translate(0,0) scale(1)'}, '50%':{transform:'translate(30px,-20px) scale(1.12)'} },
     },
     animation: {
@@ -18,6 +19,7 @@ export default {
       buttonPulse:'buttonPulse 1.8s ease-in-out infinite',
       fadeUp:'fadeUp .8s ease-out backwards', underline:'underline .9s ease-out 1s backwards',
       shimmer:'shimmer 3.2s ease-in-out infinite', marquee:'marquee 28s linear infinite',
+      'testimonial-marquee':'testimonial-marquee 55s linear infinite',
       blob:'blob 12s ease-in-out infinite',
     } } },
   plugins: [],
