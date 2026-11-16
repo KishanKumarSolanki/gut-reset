@@ -24,7 +24,7 @@ export default function ThankYou() {
 
       <div className="relative mx-auto max-w-3xl">
         {/* Hero card */}
-        <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-ink via-[#2a0b10] to-crimson-dark p-8 text-center text-white shadow-[0_30px_70px_-25px_rgba(139,0,20,0.5)] sm:p-12">
+        <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#17070a] via-[#4a0b16] to-[#8f1025] p-8 text-center text-white shadow-[0_30px_70px_-25px_rgba(139,0,20,0.5)] sm:p-12">
           <div className="pointer-events-none absolute inset-0 opacity-[0.06] [background-image:radial-gradient(#fff_1px,transparent_1px)] [background-size:18px_18px]" aria-hidden="true" />
           <div className="pointer-events-none absolute -top-24 left-1/2 h-56 w-56 -translate-x-1/2 rounded-full bg-crimson-light/25 blur-3xl" aria-hidden="true" />
 
@@ -47,10 +47,21 @@ export default function ThankYou() {
               You have successfully registered for the 90-Minute LIVE Online Masterclass with Dr. Abhimanyu Bhargava. Get ready to learn more about gut health, food habits, lifestyle factors and practical approaches to digestive wellness.
             </p>
           </div>
+          <a
+            href="https://chat.whatsapp.com/GVRdc2ZvHZ03fpNH7adzmL"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 flex w-full items-center justify-center gap-2 rounded bg-green-600 px-6 py-3 text-center text-white hover:bg-green-700"
+          >
+            <svg viewBox="0 0 32 32" className="h-5 w-5 fill-current" aria-hidden="true">
+              <path d="M16 3a13 13 0 0 0-11 19.8L3 29l6.4-2A13 13 0 1 0 16 3Zm0 23.7a10.6 10.6 0 0 1-5.4-1.5l-.4-.2-3.8 1.2 1.2-3.7-.3-.4A10.7 10.7 0 1 1 16 26.7Zm5.9-8c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1a8.7 8.7 0 0 1-4.3-3.8c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.7 6.4 6.4 0 0 0 1.3 3.4 14.6 14.6 0 0 0 5.6 4.9c2 .8 2.8.9 3.8.7a3.2 3.2 0 0 0 2.1-1.5 2.6 2.6 0 0 0 .2-1.5c-.1-.1-.3-.2-.6-.4Z" />
+            </svg>
+            Join WhatsApp Group
+          </a>
         </div>
 
         {/* What happens next */}
-        <section className="mt-14">
+        {/* <section className="mt-14">
           <h2 className="font-display text-2xl font-extrabold text-ink sm:text-3xl">What Happens Next?</h2>
           <ol className="mt-6 space-y-4">
             {steps.map(([t, d], i) => (
@@ -68,10 +79,10 @@ export default function ThankYou() {
               </li>
             ))}
           </ol>
-        </section>
+        </section> */}
 
         {/* Bonuses */}
-        <section className="mt-14 rounded-[2rem] border border-crimson/10 bg-white p-6 shadow-[0_20px_50px_-30px_rgba(139,0,20,0.3)] sm:p-9">
+        {/* <section className="mt-14 rounded-[2rem] border border-crimson/10 bg-white p-6 shadow-[0_20px_50px_-30px_rgba(139,0,20,0.3)] sm:p-9">
           <span className="inline-flex items-center rounded-full bg-crimson/10 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.16em] text-crimson">
             Bonus Included
           </span>
@@ -98,14 +109,14 @@ export default function ThankYou() {
             <span aria-hidden="true">📩</span>
             Keep an eye on your WhatsApp and email for bonus delivery instructions.
           </p>
-        </section>
+        </section> */}
 
         {/* Closing */}
         <section className="mt-14 text-center">
-          <h2 className="font-display text-2xl font-extrabold text-ink sm:text-3xl">We’re Glad You’re Here!</h2>
+          {/* <h2 className="font-display text-2xl font-extrabold text-ink sm:text-3xl">We’re Glad You’re Here!</h2>
           <p className="mx-auto mt-3 max-w-xl leading-relaxed text-neutral-600">
             Take this opportunity to learn, ask better questions about your gut health and build a more informed approach to your everyday wellness habits.
-          </p>
+          </p> */}
 
           <div className="mt-8 flex justify-center">
             <Button

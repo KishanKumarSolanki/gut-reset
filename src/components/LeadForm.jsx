@@ -7,9 +7,9 @@ import { FORM_ENDPOINT } from '../data/config'
 const validate = (v) => {
   const e = {}
   if (v.name.trim().length < 2) e.name = 'Enter your full name.'
-  if (!/^(\+?91[\s-]?)?[6-9]\d{9}$/.test(v.whatsapp.replace(/[\s-]/g, '').replace(/^\+/, '+')))
-    e.whatsapp = 'Enter a valid 10-digit WhatsApp number.'
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email)) e.email = 'Enter a valid email address.'
+  const digits = v.whatsapp.replace(/\D/g, '').slice(-10)
+  if (!/^[6-9]\d{9}$/.test(digits)) e.whatsapp = 'Enter a valid 10-digit WhatsApp number.'
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email.trim())) e.email = 'Enter a valid email address.'
   return e
 }
 
@@ -56,20 +56,31 @@ export default function LeadForm() {
       })
     }
 
+    const payload = {
+      name: v.name.trim(),
+      whatsapp: v.whatsapp.replace(/\D/g, '').slice(-10),
+      email: v.email.trim().toLowerCase(),
+      source: window.location.href,
+    }
+
     setBusy(true)
     try {
+      // text/plain se browser CORS preflight avoid hota hai (Apps Script ke liye zaroori)
       const r = await fetch(FORM_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(v),
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload),
       })
-      if (!r.ok) throw new Error()
+      const res = await r.json()
+      if (!r.ok || !res.ok) throw new Error(res.error || 'Request failed')
+
       track('registration')
       window.location.hash = 'thank-you'
     } catch {
       setStatus({ type: 'error', msg: 'Registration failed. Check your connection and try again.' })
+    } finally {
+      setBusy(false)
     }
-    setBusy(false)
   }
 
   const field = (k, label, type, ph, hint) => (
@@ -84,7 +95,8 @@ export default function LeadForm() {
         onChange={set(k)}
         placeholder={ph}
         aria-invalid={!!err[k]}
-        className={`w-full rounded-2xl border bg-white px-4 py-3.5 text-[15px] text-ink placeholder:text-neutral-400 outline-none transition-all duration-200 focus:-translate-y-px focus:shadow-[0_10px_24px_-14px_rgba(155,17,30,0.45)] focus:ring-4 focus:ring-crimson/15 ${
+        disabled={busy}
+        className={`w-full rounded-2xl border bg-white px-4 py-3.5 text-[15px] text-ink placeholder:text-neutral-400 outline-none transition-all duration-200 focus:-translate-y-px focus:shadow-[0_10px_24px_-14px_rgba(155,17,30,0.45)] focus:ring-4 focus:ring-crimson/15 disabled:opacity-70 ${
           err[k] ? 'border-red-400 bg-red-50/40 focus:border-red-500' : 'border-neutral-200 hover:border-neutral-300 focus:border-crimson'
         }`}
       />
@@ -111,7 +123,7 @@ export default function LeadForm() {
       />
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
-        {/* Left: copy (centered) */}
+        {/* Left: copy */}
         <Reveal className="text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-white/90 backdrop-blur-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-white" aria-hidden="true" />
@@ -149,7 +161,6 @@ export default function LeadForm() {
         {/* Right: form card */}
         <Reveal>
           <div className="relative">
-            {/* Offset glow behind card */}
             <div className="absolute -inset-3 rounded-[2.25rem] bg-gradient-to-br from-white/30 via-transparent to-crimson-light/30 blur-xl" aria-hidden="true" />
 
             <form
@@ -182,7 +193,9 @@ export default function LeadForm() {
                     <span className="inline-block h-5 w-5 animate-spin rounded-full border-2 border-white/40 border-t-white" aria-hidden="true" />
                     Submitting…
                   </>
-                ) : null}
+                ) : (
+                  'Register for Free'
+                )}
               </Button>
 
               {status.msg && (
