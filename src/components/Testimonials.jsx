@@ -6,15 +6,15 @@ const testimonials = [
     alt: 'Client testimonial from Satpal Prajapati, Uttar Pradesh',
   },
   {
-    src: '/images/Preeti Saini’s Gut Health Recovery Story.png',
+    src: '/images/PreetiSaini.png',
     alt: 'Client testimonial from Preeti Saini, Punjab',
   },
   {
-    src: '/images/Ravinder Kaur’s Gut Reset Journey.png',
+    src: '/images/Ravinder.png',
     alt: 'Client testimonial from Ravinder Kaur, Haryana',
   },
   {
-    src: '/images/Kasturi Kamboj’s Gut Reset Journey.png',
+    src: '/images/Kasturi.png',
     alt: 'Client testimonial from Kasturi Kamboj, Haryana',
   },
   {
